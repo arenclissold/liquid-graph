@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liquid Graph · Chart.js</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .chart-frame { position: relative; height: clamp(280px, 52vw, 520px); margin: 16px; }
+    .chart-frame canvas { width: 100%; height: 100%; }
+    .demo-note { padding: 24px; color: #a2afb5; line-height: 1.7; }
+    @media (max-width: 600px) { .card-toolbar { flex-wrap: wrap; gap: 16px; } }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header"><a class="brand" href="/">liquidgraph</a><nav><a href="/">Standalone playground ↗</a><a href="https://github.com/arenclissold" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><span class="version">CHART.JS ADAPTER</span></header>
+    <main>
+      <section class="intro"><div><p class="eyebrow">NATIVE CHART.JS. FLUID PARTICLES.</p><h1>Your charts.<br><span>A little more alive.</span></h1></div></section>
+      <section class="graph-card" aria-label="Chart.js particle graph">
+        <div class="card-top"><div><p class="eyebrow">SAVINGS BALANCE</p><h2 id="dataset-title">House deposit</h2></div></div>
+        <div class="chart-frame"><canvas id="chartjs" role="img" aria-label="Illustrative monthly savings balance. Select a dataset below to explore different balances."></canvas></div>
+        <div class="card-toolbar"><div class="datasets" role="group" aria-label="Dataset"><button data-series="0" aria-pressed="true">House deposit</button><button data-series="1" aria-pressed="false">Japan trip</button><button data-series="2" aria-pressed="false">Rainy day</button></div><button id="toggle-plugin" class="pause-button" aria-pressed="true">Particles on</button></div>
+      </section>
+      <p class="demo-note">Move your cursor through the particles. Chart.js draws the axes, legend, and tooltips; Liquid Graph draws and animates the particles. Switch datasets to see the transition, or turn particles off to compare the native line.</p>
+    </main>
+  </div>
+  <script type="module" src="/chartjs.ts"></script>
+</body>
+</html>

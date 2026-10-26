@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liquid Graph · TanStack & Recharts</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #181920; color: #e8eef2; font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 1100px; padding: 32px 20px; margin: auto; }
+    h1 { font-size: clamp(28px, 5vw, 48px); letter-spacing: -.04em; margin-bottom: 8px; }
+    p { color: #a6afb8; }
+    section { margin-top: 24px; border: 1px solid #32363f; border-radius: 16px; padding: 16px; }
+    h2 { margin: 4px 8px 20px; font-size: 18px; }
+    .chart { width: 100%; height: clamp(280px, 45vw, 440px); }
+    button { background: #262b34; color: #dceaf1; border: 1px solid #48515d; padding: 10px 16px; border-radius: 8px; cursor: pointer; margin-right: 8px; }
+    button[aria-pressed="true"] { color: #75d5f1; border-color: #75d5f1; }
+    @media(max-width:500px) { main { padding: 20px 8px; } section { padding: 12px 4px; } }
+  </style>
+</head>
+<body><main><h1>Two chart libraries. One fluid surface.</h1><p>Switch the illustrative savings data, then move your pointer through each chart.</p><div id="app"></div></main><script type="module" src="/main.tsx"></script></body>
+</html>

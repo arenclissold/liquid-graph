@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#131719" />
+  <meta name="description" content="Liquid Graph — a TypeScript particle graph. Change the data. Stir the particles. Feel the difference." />
+  <title>Liquid Graph — Data with a little life</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="importmap">
+    {"imports": {
+      "react": "https://esm.sh/react@19.2.3",
+      "react/jsx-runtime": "https://esm.sh/react@19.2.3/jsx-runtime",
+      "react/jsx-dev-runtime": "https://esm.sh/react@19.2.3/jsx-dev-runtime",
+      "react-dom": "https://esm.sh/react-dom@19.2.3?external=react"
+    }}
+  </script>
+</head>
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Liquid Graph home"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M3 18L8 10L13 15L19 5L25 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="3" cy="23" r="1" fill="currentColor"/><circle cx="8" cy="18" r="1" fill="currentColor"/><circle cx="13" cy="21" r="1" fill="currentColor"/><circle cx="19" cy="13" r="1" fill="currentColor"/><circle cx="25" cy="17" r="1" fill="currentColor"/></svg><span>liquid<span class="brand-light">graph</span></span></a>
+      <nav aria-label="Main navigation"><a href="#playground" class="nav-active">Playground</a><a href="#integrations">Integrations</a><a href="#integration">Quick start <span aria-hidden="true">↗</span></a><a class="github-link" href="https://github.com/arenclissold" target="_blank" rel="noopener noreferrer" aria-label="GitHub — opens in a new tab"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.922c.562.104.77-.243.77-.542 0-.267-.01-1.155-.016-2.096-3.13.68-3.79-1.327-3.79-1.327-.512-1.3-1.25-1.646-1.25-1.646-1.023-.7.077-.686.077-.686 1.13.08 1.725 1.16 1.725 1.16 1.005 1.72 2.637 1.223 3.28.935.102-.727.393-1.224.715-1.505-2.498-.284-5.124-1.25-5.124-5.56 0-1.23.44-2.234 1.16-3.023-.116-.284-.503-1.43.11-2.981 0 0 .944-.302 3.094 1.154A10.79 10.79 0 0 1 12 6.176c.956.004 1.92.129 2.82.379 2.148-1.456 3.09-1.154 3.09-1.154.615 1.55.228 2.697.112 2.981.722.789 1.16 1.793 1.16 3.023 0 4.32-2.63 5.273-5.135 5.552.404.35.763 1.04.763 2.096 0 1.513-.014 2.733-.014 3.105 0 .3.203.651.773.54A11.251 11.251 0 0 0 12 .75Z"/></svg>GitHub</a></nav>
+      <div class="version"><span></span> TYPESCRIPT · v0.1.0</div>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <div><p class="eyebrow"><span class="tiny-line"></span> DATA, WITH FEELING</p><h1 id="title">A little less static.<br><span>A little more alive.</span></h1></div>
+        <div class="intro-note"><p>Thousands of particles.<br>One very fluid graph.</p><p class="muted">Change the view. Move your cursor.<br>Let your data move with you.</p></div>
+      </section>
+      <section class="graph-card" id="playground" aria-label="Interactive graph playground">
+        <div class="card-top">
+          <div><p class="eyebrow metric-label" id="metric-label">HOUSE DEPOSIT</p><div class="metric-line"><h2 id="metric">$24,680<span>.00</span></h2><span class="change" id="change">↗ 658.2%</span></div><p class="metric-caption" id="metric-caption">A year of getting a little closer.</p></div>
+          <div class="periods" role="group" aria-label="Time range"><button data-period="week" aria-pressed="false">1W</button><button data-period="month" aria-pressed="false">1M</button><button data-period="year" aria-pressed="true">1Y</button><button data-period="all" aria-pressed="false">All</button></div>
+        </div>
+        <div id="chart" class="chart"></div>
+        <div class="chart-caption"><span><span class="cursor-icon" aria-hidden="true">↖</span> Illustrative savings data · Hover to explore.</span><span id="particle-caption">2,400 PARTICLES · CANVAS 2D</span></div>
+        <div class="card-toolbar"><div class="datasets" role="group" aria-label="Dataset"><button data-dataset="house" aria-pressed="true"><span aria-hidden="true">⌂</span> House deposit</button><button data-dataset="holiday" aria-pressed="false"><span aria-hidden="true">✳</span> Japan trip</button><button data-dataset="rainy" aria-pressed="false"><span aria-hidden="true">☂</span> Rainy day</button></div><button id="pause" class="pause-button" aria-pressed="false"><span aria-hidden="true">Ⅱ</span> Pause motion</button></div>
+      </section>
+      <section class="under-graph" aria-label="Customize the graph">
+        <div class="small-heading"><span class="status-dot" id="motion-dot"></span><span id="motion-status">A graph that feels like something.</span></div>
+        <div class="customize"><div class="color-control" role="group" aria-label="Particle color"><button class="swatch sky" data-color="#75d5f1" aria-label="Sky blue particles" aria-pressed="true"></button><button class="swatch mint" data-color="#9cdeb2" aria-label="Mint particles" aria-pressed="false"></button><button class="swatch lavender" data-color="#b9a2f7" aria-label="Lavender particles" aria-pressed="false"></button></div><div class="range-control"><label for="density">Density <output id="density-value">2.4k</output></label><input id="density" type="range" min="600" max="4800" step="300" value="2400" /></div><label class="motion-control"><input id="reduced-motion" type="checkbox" /> Reduced motion</label></div>
+      </section>
+      <section class="integrations" id="integrations" aria-labelledby="integrations-title">
+        <div class="integrations-heading"><div><p class="eyebrow">BRING YOUR OWN CHART</p><h3 id="integrations-title">Your favorite library.<br><em>The same fluid feeling.</em></h3></div><p>Chart.js, TanStack Charts, or Recharts.<br>Try the particles in all three.</p></div>
+        <div class="integration-layout">
+          <div class="graph-card integration-card">
+            <div class="library-tabs" role="tablist" aria-label="Chart library">
+              <button id="library-chartjs" role="tab" data-library="chartjs" aria-selected="true" aria-controls="integration-panel">Chart.js</button>
+              <button id="library-tanstack" role="tab" data-library="tanstack" aria-selected="false" aria-controls="integration-panel" tabindex="-1">TanStack Charts</button>
+              <button id="library-recharts" role="tab" data-library="recharts" aria-selected="false" aria-controls="integration-panel" tabindex="-1">Recharts</button>
+            </div>
+            <div id="integration-panel" role="tabpanel" aria-labelledby="library-chartjs" tabindex="0">
+              <div class="integration-metric"><div><p class="eyebrow" id="integration-label">House deposit</p><strong id="integration-value">$24,680</strong></div><span class="integration-live"><span></span> LIVE EXAMPLE</span></div>
+              <div class="integration-stage"><div id="integration-chart" aria-busy="true"></div><div class="integration-loading"><p id="integration-status" role="status">Select a library to explore.</p><button id="integration-retry" hidden>Reload example</button></div></div>
+              <p id="integration-description" class="integration-description">Native Chart.js axes and tooltips. A particle surface that flows with your data.</p>
+            </div>
+            <div class="card-toolbar"><div class="datasets" role="group" aria-label="Integration dataset"><button data-integration-dataset="0" aria-pressed="true">House deposit</button><button data-integration-dataset="1" aria-pressed="false">Japan trip</button><button data-integration-dataset="2" aria-pressed="false">Rainy day</button></div><button id="integration-toggle" class="pause-button" aria-pressed="true" disabled>Particles on</button></div>
+          </div>
+          <div class="code-card integration-code"><div class="code-top"><span><span class="code-dot"></span> <span id="integration-file">your-chart.ts</span></span><button id="integration-copy">Copy code</button></div><pre><code id="integration-code">import { liquidGraphPlugin } from 'liquid-graph/chartjs';
+
+Chart.register(liquidGraphPlugin);</code></pre><p>Built for your chart’s own scales, axes, and tooltips.</p></div>
+        </div>
+      </section>
+      <section class="details" id="integration">
+        <div class="details-copy"><p class="eyebrow">SMALL PACKAGE. BIG PERSONALITY.</p><h3>The particles <em>are</em> the graph.</h3><p>A dense edge, a soft falloff, and a spring connecting every dot to its destination. New data flows into place. A passing cursor sends a ripple through it.</p><div class="package-tags"><span>Zero runtime dependencies</span><span>Framework independent</span><span>Typed API</span></div><p class="reference-note">Inspired by <a href="https://up.com.au/blog/saver-insights/" target="_blank" rel="noreferrer">Up’s Saver Insights ↗</a>. An independent implementation.</p></div>
+        <div class="code-card"><div class="code-top"><span><span class="code-dot"></span> your-app.ts</span><button id="copy">Copy code <span aria-hidden="true">⧉</span></button></div><pre><code id="example-code"><span class="token-purple">import</span> { createLiquidGraph } <span class="token-purple">from</span> <span class="token-green">'liquid-graph'</span>;
+
+<span class="token-purple">const</span> graph = <span class="token-yellow">createLiquidGraph</span>(container, {
+  data: [{ x: <span class="token-coral">0</span>, y: <span class="token-coral">40</span> }, { x: <span class="token-coral">1</span>, y: <span class="token-coral">90</span> }],
+  color: <span class="token-green">'#75d5f1'</span>,
+  particleCount: <span class="token-coral">2400</span>,
+});
+
+<span class="token-comment">// Same particles. New destinations.</span>
+graph.<span class="token-yellow">setData</span>(nextData);
+
+<span class="token-comment">// Clean up when your component unmounts.</span>
+graph.<span class="token-yellow">destroy</span>();</code></pre></div>
+      </section>
+    </main>
+    <footer><span>liquidgraph <span class="muted">/ An experiment in living data</span></span><span>BUILT TO BE PLAYED WITH <span class="footer-star" aria-hidden="true">✳</span></span></footer>
+  </div>
+  <script type="module" src="/main.ts"></script>
+  <script type="module" src="/integrations.ts"></script>
+</body>
+</html>
